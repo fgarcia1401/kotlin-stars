@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Kotlin stars</string>
+
+    <!-- App Menu -->
+    <string name="app_menu_kotlin_stars">Kotlin Stars</string>
+    <string name="app_menu_about">About</string>
+
+    <!-- Screen title -->
+    <string name="list_screen_title">Repositórios Koltin</string>
+    <string name="about_screen_title">Sobre</string>
 </resources>

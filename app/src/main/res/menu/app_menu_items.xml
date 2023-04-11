@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_code_menu_outlined"
+        android:title="@string/app_menu_kotlin_stars" />
+
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/ic_info_menu_outlined"
+        android:title="@string/app_menu_about" />
+
+</menu>
