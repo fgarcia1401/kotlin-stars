@@ -1,2 +1,3 @@
 rootProject.name = "kotlin stars"
 include ':app'
+include ':core-network'
