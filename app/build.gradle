@@ -11,13 +11,13 @@ apply plugin: 'kotlin-parcelize'
 
 android {
     namespace 'com.fgarcia.kotlinstars'
-    compileSdkVersion 31
+    compileSdkVersion rootProject.ext.compileSdk
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.fgarcia.kotlinstars"
-        minSdk 24
-        targetSdkVersion 31
+        minSdk rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
         versionCode 1
         versionName "1.0"
 
