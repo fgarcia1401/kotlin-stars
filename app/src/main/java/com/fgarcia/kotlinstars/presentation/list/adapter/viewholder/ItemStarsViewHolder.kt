@@ -1,9 +1,10 @@
-package com.fgarcia.kotlinstars.presentation.list.adapter
+package com.fgarcia.kotlinstars.presentation.list.adapter.viewholder
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.fgarcia.core.extensions.formatCompactDecimal
 import com.fgarcia.kotlinstars.R
 import com.fgarcia.kotlinstars.databinding.ItemRepositoryBinding
@@ -27,6 +28,7 @@ class ItemStarsViewHolder(
     private fun populatePhotoUrl(itemStar: ItemStar) =
         Glide.with(itemView)
             .load(itemStar.photoUrl)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .fallback(R.drawable.ic_img_loading_error)
             .into(itemCharacterBinding.imageCharacter)
 

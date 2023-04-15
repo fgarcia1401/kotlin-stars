@@ -12,10 +12,9 @@ data class ItemRepositoryResponse(
 )
 
 fun ItemRepositoryResponse.toItemStarModel() = ItemStar(
-    name = this.name,
+    name = "${this.owner.login} / ${this.name}",
     totalStars = this.totalStars,
     totalForks = this.totalForks,
     photoUrl = this.owner.avatarUrl,
-    author = this.owner.login
 )
 

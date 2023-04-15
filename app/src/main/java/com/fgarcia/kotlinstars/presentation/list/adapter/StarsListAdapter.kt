@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.fgarcia.kotlinstars.domain.model.ItemStar
+import com.fgarcia.kotlinstars.presentation.list.adapter.viewholder.ItemStarsViewHolder
 
 class StarsListAdapter: PagingDataAdapter<ItemStar, ItemStarsViewHolder>(diffCallback) {
 

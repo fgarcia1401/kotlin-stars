@@ -4,6 +4,5 @@ data class ItemStar(
     val name: String,
     val totalStars: Long,
     val totalForks: Long,
-    val photoUrl: String,
-    val author: String,
+    val photoUrl: String
 )
