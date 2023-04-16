@@ -1,4 +1,4 @@
 rootProject.name = "kotlin stars"
 include ':app'
-include ':core'
+include ':common'
 include ':common-test'

@@ -1,4 +1,4 @@
-package com.fgarcia.core.extensions
+package com.fgarcia.common.extensions
 
 import android.icu.text.CompactDecimalFormat
 import android.icu.text.CompactDecimalFormat.CompactStyle.SHORT

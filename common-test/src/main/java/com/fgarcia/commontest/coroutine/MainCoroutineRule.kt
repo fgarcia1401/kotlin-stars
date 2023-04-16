@@ -1,6 +1,6 @@
 package com.fgarcia.commontest.coroutine
 
-import com.fgarcia.core.coroutines.CoroutinesDispatchers
+import com.fgarcia.common.coroutines.CoroutinesDispatchers
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

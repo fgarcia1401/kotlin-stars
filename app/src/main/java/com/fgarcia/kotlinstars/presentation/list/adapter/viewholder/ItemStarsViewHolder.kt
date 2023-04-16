@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.fgarcia.core.extensions.formatCompactDecimal
+import com.fgarcia.common.extensions.formatCompactDecimal
 import com.fgarcia.kotlinstars.R
 import com.fgarcia.kotlinstars.databinding.ItemRepositoryBinding
 import com.fgarcia.kotlinstars.databinding.ItemRepositoryBinding.inflate

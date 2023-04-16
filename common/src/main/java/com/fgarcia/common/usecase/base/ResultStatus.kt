@@ -1,4 +1,4 @@
-package com.fgarcia.core.usecase.base
+package com.fgarcia.common.usecase.base
 
 sealed class ResultStatus<out T> {
 

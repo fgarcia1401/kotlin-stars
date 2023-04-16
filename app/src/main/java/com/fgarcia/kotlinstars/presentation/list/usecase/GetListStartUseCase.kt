@@ -3,7 +3,7 @@ package com.fgarcia.kotlinstars.presentation.list.usecase
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.fgarcia.core.usecase.base.UseCase
+import com.fgarcia.common.usecase.base.UseCase
 import com.fgarcia.kotlinstars.data.repository.StarRepository
 import com.fgarcia.kotlinstars.domain.model.ItemStar
 import com.fgarcia.kotlinstars.presentation.list.usecase.GetListStartUseCase.GetListStarParams
