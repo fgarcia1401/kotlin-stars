@@ -49,6 +49,7 @@ android {
 
 dependencies {
     implementation project(':core')
+    implementation project(':common-test')
 
     // AndroidX
     implementation "androidx.core:core-ktx:$core_ktx_version"

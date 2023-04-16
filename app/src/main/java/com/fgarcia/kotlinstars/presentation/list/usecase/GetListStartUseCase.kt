@@ -10,11 +10,15 @@ import com.fgarcia.kotlinstars.presentation.list.usecase.GetListStartUseCase.Get
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 
-class GetListStartUseCase @Inject constructor(
-    private val repository: StarRepository
-) : UseCase.PagingUseCase<GetListStarParams, ItemStar>() {
-
+interface GetListStartUseCase {
+    operator fun invoke(params: GetListStarParams): Flow<PagingData<ItemStar>>
     data class GetListStarParams(val pagingConfig: PagingConfig)
+}
+
+class GetListStartUseCaseImpl @Inject constructor(
+    private val repository: StarRepository
+) : UseCase.PagingUseCase<GetListStarParams, ItemStar>(),
+    GetListStartUseCase {
 
     override fun createFlowObservable(params: GetListStarParams): Flow<PagingData<ItemStar>> {
         return Pager(config = params.pagingConfig) {
