@@ -15,7 +15,6 @@ class ItemStarsViewHolder(
     private val itemCharacterBinding: ItemRepositoryBinding
 ) : RecyclerView.ViewHolder(itemCharacterBinding.root) {
 
-
     fun bind(itemStar: ItemStar) = with(itemCharacterBinding) {
         itemStar.run {
             textName.text = name

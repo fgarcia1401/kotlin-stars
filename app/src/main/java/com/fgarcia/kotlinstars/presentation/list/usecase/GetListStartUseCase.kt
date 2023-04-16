@@ -21,8 +21,9 @@ class GetListStartUseCaseImpl @Inject constructor(
     GetListStartUseCase {
 
     override fun createFlowObservable(params: GetListStarParams): Flow<PagingData<ItemStar>> {
+        val pagingSource = repository.getListStarsWithMostStars()
         return Pager(config = params.pagingConfig) {
-            repository.getListStarsWithMostStars()
+            pagingSource
         }.flow
     }
 
