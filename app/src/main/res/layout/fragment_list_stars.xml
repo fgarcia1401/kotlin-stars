@@ -13,7 +13,7 @@
         layout="@layout/include_view_stars_loading_state" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_characters"
+        android:id="@+id/recycler_stars"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"

@@ -21,7 +21,8 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.fgarcia.kotlinstars.CustomTestRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
 
         buildConfigField "String", "BASE_URL", '"https://api.github.com/"'
     }
@@ -45,6 +46,11 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+    }
+
 }
 
 dependencies {
@@ -94,7 +100,20 @@ dependencies {
     testImplementation "androidx.room:room-testing:$room_version"
 
     // Instrumentation tests
+    def espresso_version = '3.3.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestUtil 'androidx.test:orchestrator:1.4.1'
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    def fragment_version = "1.4.0"
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+
+    def mock_webserver = "4.9.3"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mock_webserver"
 
 }

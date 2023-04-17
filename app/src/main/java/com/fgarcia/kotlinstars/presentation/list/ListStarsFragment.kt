@@ -62,7 +62,7 @@ class ListStarsFragment : Fragment() {
 
     private fun initListStarsAdapter() {
         listRepositoryAdapter = StarsListAdapter(imageLoader)
-        binding.recyclerCharacters.run {
+        binding.recyclerStars.run {
             setHasFixedSize(true)
             adapter = listRepositoryAdapter.withLoadStateFooter(
                 footer = StartLoadStateAdapter { listRepositoryAdapter.retry() }

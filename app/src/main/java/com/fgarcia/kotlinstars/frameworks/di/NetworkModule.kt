@@ -49,10 +49,11 @@ object NetworkModule {
     @Provides
     fun providerRetrofit(
         okHttpClient: OkHttpClient,
-        converterFactory: GsonConverterFactory
+        converterFactory: GsonConverterFactory,
+        @BaseUrl baseUrl: String
     ): GitHubApi {
         return Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(baseUrl)
             .client(okHttpClient)
             .addConverterFactory(converterFactory)
             .build()

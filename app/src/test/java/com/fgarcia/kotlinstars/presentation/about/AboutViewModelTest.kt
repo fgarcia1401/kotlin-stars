@@ -10,12 +10,9 @@ import com.fgarcia.kotlinstars.presentation.about.usecase.GetAuthorUseCase
 import com.fgarcia.kotlinstars.presentation.about.usecase.GetAuthorUseCase.GetAuthorParams
 import com.fgarcia.kotlinstars.util.AuthorFactory
 import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
