@@ -17,7 +17,6 @@ import com.fgarcia.kotlinstars.databinding.IncludeAboutBinding
 import com.fgarcia.kotlinstars.domain.model.Author
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -39,14 +38,12 @@ class AboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeInitialLoadState()
-        getListStarsPagingData()
+        getDataAuthor()
     }
 
-    private fun getListStarsPagingData() {
+    private fun getDataAuthor() {
         lifecycleScope.launch {
-            viewLifecycleOwner.lifecycle.repeatOnLifecycle(STARTED) {
-                viewModel.getDataAuthor()
-            }
+            viewLifecycleOwner.lifecycle.repeatOnLifecycle(STARTED) { viewModel.getDataAuthor() }
         }
     }
 
@@ -57,7 +54,7 @@ class AboutFragment : Fragment() {
                     binding.flipperList.displayedChild = when (uiState) {
                         is ResultStatus.Loading -> FLIPPER_CHILD_LOADING
                         is ResultStatus.Success -> showAuthor(author = uiState.data)
-                        is ResultStatus.Error -> FLIPPER_CHILD_ERROR
+                        is ResultStatus.Error -> showError()
                     }
                 }
             }
@@ -77,12 +74,15 @@ class AboutFragment : Fragment() {
         )
     }
 
+    private fun showError(): Int = with(binding.includeViewStatsErrorState) {
+        buttonRetry.setOnClickListener { getDataAuthor() }
+        return FLIPPER_CHILD_ERROR
+    }
 
     private companion object {
         const val FLIPPER_CHILD_LOADING = 0
         const val FLIPPER_CHILD_AUTHOR = 1
         const val FLIPPER_CHILD_ERROR = 2
     }
-
 
 }
