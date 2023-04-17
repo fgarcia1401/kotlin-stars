@@ -3,7 +3,7 @@ package com.fgarcia.kotlinstars.frameworks.paging
 import androidx.paging.PagingSource.LoadParams
 import androidx.paging.PagingSource.LoadResult
 import com.fgarcia.commontest.coroutine.MainCoroutineRule
-import com.fgarcia.kotlinstars.data.remote.StarRemoteDataSource
+import com.fgarcia.kotlinstars.data.remote.GitRemoteDataSource
 import com.fgarcia.kotlinstars.domain.model.ItemStar
 import com.fgarcia.kotlinstars.util.ItemStarFactory
 import com.nhaarman.mockitokotlin2.any
@@ -26,7 +26,7 @@ class StarPagingSourceTest {
     var mainCoroutineRule = MainCoroutineRule()
 
     @Mock
-    lateinit var remoteDataSource: StarRemoteDataSource
+    lateinit var remoteDataSource: GitRemoteDataSource
 
     private lateinit var startPagingSource: StarPagingSource
 

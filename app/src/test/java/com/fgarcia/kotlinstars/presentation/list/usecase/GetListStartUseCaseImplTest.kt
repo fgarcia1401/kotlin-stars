@@ -2,8 +2,7 @@ package com.fgarcia.kotlinstars.presentation.list.usecase
 
 import androidx.paging.PagingConfig
 import com.fgarcia.commontest.coroutine.MainCoroutineRule
-import com.fgarcia.kotlinstars.data.repository.StarRepository
-import com.fgarcia.kotlinstars.domain.model.ItemStar
+import com.fgarcia.kotlinstars.data.repository.GitRepository
 import com.fgarcia.kotlinstars.presentation.list.usecase.GetListStartUseCase.GetListStarParams
 import com.fgarcia.kotlinstars.util.ItemStarFactory
 import com.fgarcia.kotlinstars.util.PagingSourceFactory
@@ -29,7 +28,7 @@ class GetListStartUseCaseImplTest {
     var mainCoroutineRule = MainCoroutineRule()
 
     @Mock
-    lateinit var repository: StarRepository
+    lateinit var repository: GitRepository
 
     private lateinit var getListStartUseCase: GetListStartUseCase
 

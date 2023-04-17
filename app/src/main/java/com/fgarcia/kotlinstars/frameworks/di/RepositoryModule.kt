@@ -1,9 +1,9 @@
 package com.fgarcia.kotlinstars.frameworks.di
 
-import com.fgarcia.kotlinstars.data.remote.StarRemoteDataSource
-import com.fgarcia.kotlinstars.data.repository.StarRepository
-import com.fgarcia.kotlinstars.data.repository.StarRepositoryImpl
-import com.fgarcia.kotlinstars.frameworks.remote.RetrofitStarDataSource
+import com.fgarcia.kotlinstars.data.remote.GitRemoteDataSource
+import com.fgarcia.kotlinstars.data.repository.GitRepository
+import com.fgarcia.kotlinstars.data.repository.GitRepositoryImpl
+import com.fgarcia.kotlinstars.frameworks.remote.RetrofitGitDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,9 +14,9 @@ import dagger.hilt.components.SingletonComponent
 interface RepositoryModule {
 
     @Binds
-    fun bindStarRepository(repository: StarRepositoryImpl): StarRepository
+    fun bindStarRepository(repository: GitRepositoryImpl): GitRepository
 
     @Binds
-    fun bindRemoteDataSource(dataSource: RetrofitStarDataSource):  StarRemoteDataSource
+    fun bindRemoteDataSource(dataSource: RetrofitGitDataSource):  GitRemoteDataSource
 
 }

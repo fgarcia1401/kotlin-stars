@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flipper_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.about.AboutFragment">
+    tools:context=".presentation.list.ListStarsFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/about_screen_title" />
+    <ProgressBar
+        android:id="@+id/progress_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
-</FrameLayout>
+    <include
+        android:id="@+id/include_about"
+        layout="@layout/include_about" />
+
+    <include
+        android:id="@+id/include_view_stats_error_state"
+        layout="@layout/include_error_view" />
+
+</ViewFlipper>

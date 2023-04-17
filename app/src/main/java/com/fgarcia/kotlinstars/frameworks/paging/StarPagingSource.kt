@@ -2,13 +2,13 @@ package com.fgarcia.kotlinstars.frameworks.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.fgarcia.kotlinstars.data.remote.StarRemoteDataSource
+import com.fgarcia.kotlinstars.data.remote.GitRemoteDataSource
 import com.fgarcia.kotlinstars.domain.model.ItemStar
 import java.lang.Exception
 
 
 class StarPagingSource(
-    private val remoteDataSource: StarRemoteDataSource,
+    private val remoteDataSource: GitRemoteDataSource,
 ) : PagingSource<Int, ItemStar>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ItemStar> {

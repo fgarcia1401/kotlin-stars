@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 @HiltViewModel
 class ListStarsViewModel @Inject constructor(
     private val getListStartUseCase: GetListStartUseCase
-) :ViewModel() {
+) : ViewModel() {
 
     fun listStarsPagingData(): Flow<PagingData<ItemStar>> {
         return getListStartUseCase(

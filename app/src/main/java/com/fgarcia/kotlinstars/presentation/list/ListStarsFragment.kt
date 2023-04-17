@@ -13,10 +13,14 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import androidx.paging.LoadState.Loading
 import androidx.paging.LoadState.NotLoading
+import com.fgarcia.common.imageloader.ImageLoader
+import com.fgarcia.common.viewbinding.viewBinding
+import com.fgarcia.kotlinstars.R
 import com.fgarcia.kotlinstars.databinding.FragmentListStarsBinding
 import com.fgarcia.kotlinstars.presentation.list.adapter.StarsListAdapter
 import com.fgarcia.kotlinstars.presentation.list.adapter.StartLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -24,23 +28,20 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class ListStarsFragment : Fragment() {
 
-    private var _binding: FragmentListStarsBinding ?= null
-    private val binding: FragmentListStarsBinding get() = _binding!!
-
     private val viewModel: ListStarsViewModel by viewModels()
+
+    private val binding: FragmentListStarsBinding by viewBinding()
 
     private lateinit var listRepositoryAdapter: StarsListAdapter
 
+    @Inject
+    lateinit var imageLoader: ImageLoader
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ) = FragmentListStarsBinding.inflate(
-        inflater,
-        container,
-        false
-    ).apply {
-        _binding = this
-    }.root
+    ) = FragmentListStarsBinding.inflate(inflater, container, false).root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -60,7 +61,7 @@ class ListStarsFragment : Fragment() {
     }
 
     private fun initListStarsAdapter() {
-        listRepositoryAdapter = StarsListAdapter()
+        listRepositoryAdapter = StarsListAdapter(imageLoader)
         binding.recyclerCharacters.run {
             setHasFixedSize(true)
             adapter = listRepositoryAdapter.withLoadStateFooter(
