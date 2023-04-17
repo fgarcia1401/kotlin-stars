@@ -13,7 +13,9 @@ import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
@@ -38,7 +40,8 @@ class AboutViewModelTest {
 
     private val author = AuthorFactory.create()
 
-    private val uiStateObserver = mock<Observer<ResultStatus<Author>>>()
+    @Mock
+    private lateinit var uiStateObserver: Observer<ResultStatus<Author>>
 
     @Before
     fun setUp() {

@@ -47,7 +47,6 @@ class GetListStartUseCaseImplTest {
             val result = getListStartUseCase.invoke(GetListStarParams(PagingConfig(30)))
 
             verify(repository).getListStarsWithMostStars()
-
             Assert.assertNotNull(result.first())
         }
 
