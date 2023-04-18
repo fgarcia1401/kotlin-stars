@@ -1,10 +1,11 @@
 package com.fgarcia.kotlinstars.frameworks.remote
 
 import com.fgarcia.kotlinstars.data.remote.GitRemoteDataSource
+import com.fgarcia.kotlinstars.domain.mappers.AuthorMapper
+import com.fgarcia.kotlinstars.domain.mappers.ItemStarMapper
+import com.fgarcia.kotlinstars.domain.model.Author
 import com.fgarcia.kotlinstars.domain.model.ItemStar
 import com.fgarcia.kotlinstars.frameworks.network.GitHubApi
-import com.fgarcia.kotlinstars.frameworks.network.response.toAuthorModel
-import com.fgarcia.kotlinstars.frameworks.network.response.toItemStarModel
 import javax.inject.Inject
 
 class RetrofitGitDataSource @Inject constructor(
@@ -12,11 +13,11 @@ class RetrofitGitDataSource @Inject constructor(
 ) : GitRemoteDataSource {
 
     override suspend fun fetchListStar(queries: Map<String, String>) : List<ItemStar> {
-        return api.getCharacters(queries).items.map {
-            it.toItemStarModel()
-       }
+        return api.getCharacters(queries).items.map { ItemStarMapper.transform(it) }
     }
 
-    override suspend fun fetchLoginAuthor(login: String) = api.getDataLogin(login).toAuthorModel()
+    override suspend fun fetchLoginAuthor(login: String): Author {
+        return AuthorMapper.transform(api.getDataLogin(login))
+    }
 
 }

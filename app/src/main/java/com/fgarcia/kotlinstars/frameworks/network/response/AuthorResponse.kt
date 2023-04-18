@@ -8,8 +8,4 @@ data class AuthorResponse(
     @SerializedName("avatar_url") val avatarUrl: String
 )
 
-fun AuthorResponse.toAuthorModel() = Author(
-    login = this.login,
-    photoUrl = this.avatarUrl
-)
 
