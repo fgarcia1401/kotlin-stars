@@ -18,7 +18,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_repository" />
+        tools:listitem="@layout/item_star" />
 
     <include
         android:id="@+id/include_view_stats_error_state"

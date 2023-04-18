@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fgarcia.common.extensions.formatCompactDecimal
 import com.fgarcia.common.imageloader.ImageLoader
-import com.fgarcia.kotlinstars.databinding.ItemRepositoryBinding
-import com.fgarcia.kotlinstars.databinding.ItemRepositoryBinding.inflate
+import com.fgarcia.kotlinstars.databinding.ItemStarBinding
+import com.fgarcia.kotlinstars.databinding.ItemStarBinding.inflate
 import com.fgarcia.kotlinstars.domain.model.ItemStar
 
 class ItemStarsViewHolder(
-    private val itemCharacterBinding: ItemRepositoryBinding,
+    private val itemCharacterBinding: ItemStarBinding,
     private val imageLoader: ImageLoader
 ) : RecyclerView.ViewHolder(itemCharacterBinding.root) {
 

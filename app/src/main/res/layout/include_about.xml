@@ -5,19 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/card_character"
-    android:layout_margin="16dp"
-    app:cardCornerRadius="8dp">
+    android:id="@+id/card_about"
+    android:layout_margin="@dimen/double_grid"
+    app:cardCornerRadius="@dimen/base_grid">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/double_grid">
 
         <ImageView
             android:id="@+id/image_author"
-            android:layout_width="0dp"
-            android:layout_height="170dp"
+            android:layout_width="@dimen/zero_grid"
+            android:layout_height="@dimen/image_avatar_height"
             android:scaleType="fitCenter"
             android:importantForAccessibility="no"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,11 +29,11 @@
             android:id="@+id/text_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/text_grid"
+            android:layout_marginTop="@dimen/base_grid"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textSize="18sp"
+            android:textSize="@dimen/TextSizeH1"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/image_author"
             app:layout_constraintStart_toStartOf="parent"

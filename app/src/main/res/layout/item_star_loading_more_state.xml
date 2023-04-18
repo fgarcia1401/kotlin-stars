@@ -10,10 +10,10 @@
         android:text="@string/error_loading_more_try_again"
         android:textAlignment="center"
         android:background="@android:color/black"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp"
+        android:paddingStart="@dimen/double_grid"
+        android:paddingEnd="@dimen/double_grid"
+        android:paddingTop="@dimen/large_grid"
+        android:paddingBottom="@dimen/large_grid"
         android:textColor="@color/white" />
 
     <ProgressBar
