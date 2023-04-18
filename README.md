@@ -5,8 +5,6 @@ In this sample I tried follow the Clean Architecture principles and use some coo
 
 Ex: Pattern Repository, UseCases, Mappers, Robot Pattern
 
-![Demo](https://github.com/fgarcia1401/kotlin-stars/blob/master/resources/teste.gif)
-
 ## Libraries
 This project is written in Kotlin and used the following libraries:
 
@@ -26,3 +24,7 @@ This project is written in Kotlin and used the following libraries:
 ## Contribute
 
 This project is just a demo, but any feedback and/or PR's are appreciated!
+
+## Demo
+
+![Demo](https://github.com/fgarcia1401/kotlin-stars/blob/master/resources/teste.gif)
