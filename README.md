@@ -7,8 +7,6 @@ Ex: Pattern Repository, UseCases, Mappers, Robot Pattern
 
 ![Demo](https://s11.gifyu.com/images/teste-2.gif)
 
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
-
 ## Libraries
 This project is written in Kotlin and used the following libraries:
 
