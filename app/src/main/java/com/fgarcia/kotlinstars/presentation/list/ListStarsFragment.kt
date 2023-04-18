@@ -11,10 +11,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
+import androidx.paging.LoadState.Error
 import androidx.paging.LoadState.Loading
 import androidx.paging.LoadState.NotLoading
 import com.fgarcia.common.imageloader.ImageLoader
-import com.fgarcia.common.arch.viewbinding.viewBinding
+import com.fgarcia.common.viewbinding.viewBinding
 import com.fgarcia.kotlinstars.databinding.FragmentListStarsBinding
 import com.fgarcia.kotlinstars.presentation.list.adapter.StarsListAdapter
 import com.fgarcia.kotlinstars.presentation.list.adapter.StartLoadStateAdapter
@@ -30,7 +31,7 @@ class ListStarsFragment : Fragment() {
 
     private val binding: FragmentListStarsBinding by viewBinding()
 
-    private lateinit var listRepositoryAdapter: StarsListAdapter
+    private lateinit var listAdapter: StarsListAdapter
 
     @Inject
     lateinit var imageLoader: ImageLoader
@@ -52,43 +53,51 @@ class ListStarsFragment : Fragment() {
         lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.listStarsPagingData().collect { pagingData ->
-                    listRepositoryAdapter.submitData(pagingData)
+                    listAdapter.submitData(pagingData)
                 }
             }
         }
     }
 
     private fun initListStarsAdapter() {
-        listRepositoryAdapter = StarsListAdapter(imageLoader)
+        listAdapter = StarsListAdapter(imageLoader)
         binding.recyclerStars.run {
             setHasFixedSize(true)
-            adapter = listRepositoryAdapter.withLoadStateFooter(
-                footer = StartLoadStateAdapter { listRepositoryAdapter.retry() }
+            adapter = listAdapter.withLoadStateFooter(
+                footer = StartLoadStateAdapter { listAdapter.retry() }
             )
         }
     }
 
     private fun observeInitialLoadState() {
         lifecycleScope.launch {
-            listRepositoryAdapter.loadStateFlow.collectLatest { loadState ->
-              binding.flipperList.displayedChild = when (loadState.refresh) {
-                    is Loading -> {
+            listAdapter.loadStateFlow.collectLatest { loadState ->
+                binding.flipperList.displayedChild = when {
+                    loadState.mediator?.refresh is Loading -> {
                         setShimmerVisibility(visibility = true)
                         FLIPPER_CHILD_LOADING
                     }
-                    is NotLoading -> {
-                        setShimmerVisibility(visibility = false)
-                        FLIPPER_CHILD_LIST
-                    }
-                    is LoadState.Error -> {
+                    loadState.mediator?.refresh is Error && listAdapter.itemCount == 0 -> {
                         setShimmerVisibility(visibility = false)
                         setOnClickRetryButton()
                         FLIPPER_CHILD_ERROR
+                    }
+                    loadState.source.refresh is NotLoading
+                            || loadState.mediator?.refresh is NotLoading -> showList()
+                    else -> {
+                         binding.recyclerStars.scrollToPosition(0)
+                         showList()
                     }
                 }
             }
         }
     }
+
+    private fun showList(): Int {
+        setShimmerVisibility(visibility = false)
+        return FLIPPER_CHILD_LIST
+    }
+
 
     private fun setShimmerVisibility(visibility: Boolean) {
         binding.includeViewStarsLoadingState.shimmerStart.run {
@@ -99,7 +108,7 @@ class ListStarsFragment : Fragment() {
 
     private fun setOnClickRetryButton() = with(binding) {
         includeViewStatsErrorState.buttonRetry.setOnClickListener {
-            listRepositoryAdapter.retry()
+            listAdapter.retry()
         }
     }
 

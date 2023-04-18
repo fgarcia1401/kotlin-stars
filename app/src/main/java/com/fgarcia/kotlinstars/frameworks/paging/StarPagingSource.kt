@@ -51,6 +51,4 @@ class StarPagingSource(
         const val LIMIT = 30
     }
 
-    //https://api.github.com/search/repositories?q=language:kotlin&sort=stars&per_page=20&page=2
-
 }
