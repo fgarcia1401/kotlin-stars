@@ -1,4 +1,4 @@
-package com.fgarcia.common.viewbinding
+package com.fgarcia.common.arch.viewbinding
 
 import android.view.View
 import androidx.fragment.app.Fragment

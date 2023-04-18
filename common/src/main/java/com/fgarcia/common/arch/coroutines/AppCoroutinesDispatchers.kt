@@ -1,4 +1,4 @@
-package com.fgarcia.common.coroutines
+package com.fgarcia.common.arch.coroutines
 
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher

@@ -3,7 +3,7 @@ package com.fgarcia.kotlinstars.presentation.about
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import androidx.lifecycle.asLiveData
-import com.fgarcia.common.usecase.base.ResultStatus
+import com.fgarcia.common.arch.usecase.base.ResultStatus
 import com.fgarcia.commontest.coroutine.MainCoroutineRule
 import com.fgarcia.kotlinstars.domain.model.Author
 import com.fgarcia.kotlinstars.presentation.about.usecase.GetAuthorUseCase

@@ -10,8 +10,8 @@ import androidx.lifecycle.Lifecycle.State.STARTED
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.fgarcia.common.imageloader.ImageLoader
-import com.fgarcia.common.usecase.base.ResultStatus
-import com.fgarcia.common.viewbinding.viewBinding
+import com.fgarcia.common.arch.usecase.base.ResultStatus
+import com.fgarcia.common.arch.viewbinding.viewBinding
 import com.fgarcia.kotlinstars.databinding.FragmentAboutBinding
 import com.fgarcia.kotlinstars.databinding.IncludeAboutBinding
 import com.fgarcia.kotlinstars.domain.model.Author

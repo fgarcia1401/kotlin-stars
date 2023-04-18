@@ -1,7 +1,7 @@
-package com.fgarcia.kotlinstars.frameworks.di
+package com.fgarcia.common.di
 
-import com.fgarcia.common.coroutines.AppCoroutinesDispatchers
-import com.fgarcia.common.coroutines.CoroutinesDispatchers
+import com.fgarcia.common.arch.coroutines.AppCoroutinesDispatchers
+import com.fgarcia.common.arch.coroutines.CoroutinesDispatchers
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.fgarcia.kotlinstars.frameworks.di
+package com.fgarcia.common.di
 
 import com.fgarcia.common.imageloader.GlideImageLoader
 import com.fgarcia.common.imageloader.ImageLoader
@@ -9,7 +9,7 @@ import dagger.hilt.android.components.FragmentComponent
 
 @Module
 @InstallIn(FragmentComponent::class)
-interface AppModule {
+interface CommonModule {
 
     @Binds
     fun bindImageLoader(imageLoader: GlideImageLoader): ImageLoader

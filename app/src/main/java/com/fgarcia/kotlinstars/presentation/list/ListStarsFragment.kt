@@ -14,14 +14,12 @@ import androidx.paging.LoadState
 import androidx.paging.LoadState.Loading
 import androidx.paging.LoadState.NotLoading
 import com.fgarcia.common.imageloader.ImageLoader
-import com.fgarcia.common.viewbinding.viewBinding
-import com.fgarcia.kotlinstars.R
+import com.fgarcia.common.arch.viewbinding.viewBinding
 import com.fgarcia.kotlinstars.databinding.FragmentListStarsBinding
 import com.fgarcia.kotlinstars.presentation.list.adapter.StarsListAdapter
 import com.fgarcia.kotlinstars.presentation.list.adapter.StartLoadStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

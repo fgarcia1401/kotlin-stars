@@ -1,6 +1,6 @@
 package com.fgarcia.kotlinstars.presentation.about.usecase
 
-import com.fgarcia.common.usecase.base.ResultStatus
+import com.fgarcia.common.arch.usecase.base.ResultStatus
 import com.fgarcia.commontest.coroutine.MainCoroutineRule
 import com.fgarcia.kotlinstars.data.repository.GitRepository
 import com.fgarcia.kotlinstars.presentation.about.usecase.GetAuthorUseCase.GetAuthorParams
@@ -8,7 +8,6 @@ import com.fgarcia.kotlinstars.util.AuthorFactory
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import junit.framework.TestCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest

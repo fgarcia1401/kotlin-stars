@@ -1,8 +1,8 @@
 package com.fgarcia.kotlinstars.presentation.about.usecase
 
-import com.fgarcia.common.coroutines.CoroutinesDispatchers
-import com.fgarcia.common.usecase.base.ResultStatus
-import com.fgarcia.common.usecase.base.UseCase
+import com.fgarcia.common.arch.coroutines.CoroutinesDispatchers
+import com.fgarcia.common.arch.usecase.base.ResultStatus
+import com.fgarcia.common.arch.usecase.base.UseCase
 import com.fgarcia.kotlinstars.data.repository.GitRepository
 import com.fgarcia.kotlinstars.domain.model.Author
 import javax.inject.Inject
