@@ -1,0 +1,105 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: "androidx.navigation.safeargs"
+apply plugin: 'kotlin-parcelize'
+
+android {
+    namespace 'com.fgarcia.list'
+    compileSdkVersion rootProject.ext.compileSdk
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+
+        testInstrumentationRunner "com.fgarcia.list.CustomTestRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+    }
+
+}
+
+dependencies {
+    implementation project(':common')
+    implementation project(':common-network')
+    implementation project(':common-test')
+
+    // Navigation
+    def nav_version = '2.5.3'
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // ViewModel and LiveData
+    def lifecycle_version = "2.5.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    // Dagger Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    // OkHttp
+    api(platform("com.squareup.okhttp3:okhttp-bom:4.9.0"))
+    api("com.squareup.okhttp3:okhttp")
+    api("com.squareup.okhttp3:logging-interceptor")
+
+    // Retrofit
+    def retrofit_version = '2.9.0'
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    // Paging3
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+
+    // Other Libs
+    implementation "com.facebook.shimmer:shimmer:$androidx_shimmer_version"
+
+    // Instrumentation tests
+    def espresso_version = '3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestUtil 'androidx.test:orchestrator:1.4.1'
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    def fragment_version = "1.5.3"
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+
+    def mock_webserver = "4.9.3"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mock_webserver"
+
+}

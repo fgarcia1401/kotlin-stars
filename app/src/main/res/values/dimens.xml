@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Margin app -->
-    <dimen name="zero_grid">0dp</dimen>
-    <dimen name="extra_tiny_grid">1dp</dimen>
-    <dimen name="tiny_grid">2dp</dimen>
-    <dimen name="text_grid">4dp</dimen>
-    <dimen name="elevation_grid">6dp</dimen>
-    <dimen name="base_grid">8dp</dimen>
-    <dimen name="double_grid">16dp</dimen>
-    <dimen name="medium_grid">20dp</dimen>
-    <dimen name="large_grid">24dp</dimen>
-
-    <!--  Text Sizes  -->
-    <dimen name="TextSizeH1">18sp</dimen>
-
     <dimen name="bottom_nav_height">56dp</dimen>
-    <dimen name="image_avatar_height">170dp</dimen>
-    <dimen name="card_view_star_height">230dp</dimen>
 </resources>

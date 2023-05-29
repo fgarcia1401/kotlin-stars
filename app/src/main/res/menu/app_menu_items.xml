@@ -7,7 +7,7 @@
         android:title="@string/app_menu_kotlin_stars" />
 
     <item
-        android:id="@+id/about"
+        android:id="@+id/about_nav_graph"
         android:icon="@drawable/ic_info_menu_outlined"
         android:title="@string/app_menu_about" />
 

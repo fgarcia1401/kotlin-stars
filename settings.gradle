@@ -2,3 +2,6 @@ rootProject.name = "kotlin stars"
 include ':app'
 include ':common'
 include ':common-test'
+include ':features:about'
+include ':common-network'
+include ':features:list'
